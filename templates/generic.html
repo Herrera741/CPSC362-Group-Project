@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Skudar</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/static/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Back to Search</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="index">Home</a></li>
+								<li><a href="generic">Generic</a></li>
+								<li><a href="elements">Elements</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+						<header>
+							<div class="inner">
+								<h2>Results</h2>
+							</div>
+						</header>
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+								<!--ADDED CODE-->
+								{%if results: %}
+									{%if results[0]: %}
+										<h3 class="major">Walmart</h3>
+											<ul>	
+												{% for items in results[0] %}
+													<ul> 
+														<li> {% print(items['brand']) %} </li>
+														<li> {% print(items['name']) %} </li>
+														<li> {% print(items['availability']) %} </li>
+														<li> {% print(items['price']) %} </li>
+														<li> {% print(items['address']) %} </li>
+														<img src = {{ items['image'] }} width="200" height="200"/>
+													</ul>
+												{%endfor%} 
+											</ul>
+									{% endif %}
+									
+									{%if results[1]: %}
+										<h3 class="major">Target</h3>
+											<ul>	
+												{% for items in results[1] %} 
+													<ul>
+														<li> {% print(items['brand']) %} </li>
+														<li> {% print(items['name']) %} </li>
+														<li> {% print(items['availability']) %} </li>
+														<li> {% print(items['price']) %} </li>
+														<li> {% print(items['address']) %} </li>
+														<li> {% print(items['distance']) %} </li>
+														<img src = {{ items['image'] }} width="200" height="200"/>
+													</ul>
+												{%endfor%} 
+											</ul>
+									{% endif %}
+								{% endif %}
+								</div>
+							</div>
+						
+					</section>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="inner">
+							<ul class="copyright">
+								<li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="/static/assets/js/jquery.min.js"></script>
+			<script src="/static/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/static/assets/js/browser.min.js"></script>
+			<script src="/static/assets/js/breakpoints.min.js"></script>
+			<script src="/static/assets/js/util.js"></script>
+			<script src="/static/assets/js/main.js"></script>
+
+	</body>
+</html>
